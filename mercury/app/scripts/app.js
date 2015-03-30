@@ -1,4 +1,4 @@
-angular.module('starter', ['ionic', 'starter.controllers'])
+angular.module('mercury', ['ionic', 'LocalStorageModule', 'mercury.controllers'])
 
 .run(function($ionicPlatform) {
     $ionicPlatform.ready(function() {
@@ -13,7 +13,9 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider, localStorageServiceProvider) {
+    localStorageServiceProvider.setPrefix('mercury');
+
     $stateProvider
     
     .state('app', {
@@ -32,18 +34,18 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         }
     })
 
-    .state('app.mycarlists', {
-      url: "/mycarlists",
+    .state('app.mycarlist', {
+      url: "/mycarlist",
       views: {
         'menuContent': {
-          templateUrl: "templates/mycarlists.html",
-          controller: 'MyCarListsCtrl'
+          templateUrl: "templates/mycarlist.html",
+          controller: 'MyCarListCtrl'
         }
       }
     })
 
     .state('app.single', {
-        url: "/mycarlists/:carId",
+        url: "/mycarlist/:carId",
         views: {
             'menuContent': {
                 templateUrl: "templates/carDetail.html",
@@ -53,5 +55,5 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     });
   
     // if none of the above states are matched, use this as the fallback
-    $urlRouterProvider.otherwise('/app/mycarlists');
+    $urlRouterProvider.otherwise('/app/mycarlist');
 });

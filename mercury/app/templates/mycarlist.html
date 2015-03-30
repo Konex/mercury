@@ -1,0 +1,9 @@
+<ion-view view-title="My car list">
+  <ion-content>
+    <ion-list>
+      <ion-item ng-repeat="car in myCarList" href="#/app/mycarlist/{{::car.id}}">
+        {{::car.title}}
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
