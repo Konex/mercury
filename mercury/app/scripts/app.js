@@ -46,8 +46,8 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         url: "/mycarlists/:carId",
         views: {
             'menuContent': {
-                templateUrl: "templates/playlist.html",
-                controller: 'PlaylistCtrl'
+                templateUrl: "templates/carDetail.html",
+                controller: 'CarDetailCtrl'
             }
         }
     });

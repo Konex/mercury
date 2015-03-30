@@ -158,7 +158,16 @@ module.exports = function (grunt) {
       sass: {
         src: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
         ignorePath: /(\.\.\/){1,2}lib\//
-      }
+      },
+      options: {
+            cwd: '',
+            dependencies: true,
+            devDependencies: false,
+            exclude: [],
+            fileTypes: {},
+            ignorePath: '',
+            overrides: {}
+        }
     },
 
     
