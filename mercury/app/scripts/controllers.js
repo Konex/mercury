@@ -1,5 +1,5 @@
 (function () {
-    angular.module('mercury.controllers', []);
+    angular.module('mercury.controllers', ['LocalStorageModule']);
 
     function appController ($scope, $ionicModal, $timeout) {
 
@@ -13,7 +13,7 @@
 
 
 
-    function myCarListController ($scope) {
+    function myCarListController ($scope, localStorageService) {
         $scope.myCarList = [
             { title: 'Honda Accord', id: 1 },
             { title: 'Nissan Bluebird', id: 2 }
@@ -27,7 +27,7 @@
 
 
 
-    function carDetailController ($scope, $stateParams) {
+    function carDetailController ($scope, $stateParams, localStorageService) {
         var id = $stateParams.carId;
     }
     angular
