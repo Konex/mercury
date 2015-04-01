@@ -1,8 +1,9 @@
 (function () {
     angular.module('mercury.controllers', ['LocalStorageModule']);
 
-    function appController ($scope, $ionicModal, $timeout) {
-
+    function appController ($scope, $ionicModal, $timeout, localStorageService) {
+        var carList = localStorageService.get('myCarList');
+        $scope.numberOfCar = carList ? carList.length : 0;
     }
     angular
         .module('mercury.controllers')
@@ -14,10 +15,12 @@
 
 
     function myCarListController ($scope, localStorageService) {
-        $scope.myCarList = [
-            { title: 'Honda Accord', id: 1 },
-            { title: 'Nissan Bluebird', id: 2 }
-        ];
+        // var defaultCarList = [
+        //     { title: 'Honda Accord', id: 1 },
+        //     { title: 'Nissan Bluebird', id: 2 }
+        // ];
+        var carList = localStorageService.get('myCarList');
+        $scope.myCarList = carList || [];  
     }
     angular
         .module('mercury.controllers')
