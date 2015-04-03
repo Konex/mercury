@@ -44,6 +44,16 @@ angular.module('mercury', ['ionic', 'LocalStorageModule', 'mercury.controllers']
       }
     })
 
+    .state('app.addCar', {
+        url: "/addCar",
+        views: {
+            'menuContent': {
+                templateUrl: "templates/addCar.html",
+                controller: 'AddCarCtrl'
+            }
+        }
+    })
+
     .state('app.single', {
         url: "/mycarlist/:carId",
         views: {

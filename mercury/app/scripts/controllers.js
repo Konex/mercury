@@ -19,12 +19,34 @@
         //     { title: 'Honda Accord', id: 1 },
         //     { title: 'Nissan Bluebird', id: 2 }
         // ];
+        function addCar() {
+
+        }
+
+
+
         var carList = localStorageService.get('myCarList');
-        $scope.myCarList = carList || [];  
+        $scope.myCarList = carList || [];
+
+
+
     }
     angular
         .module('mercury.controllers')
         .controller('MyCarListCtrl', myCarListController);
+
+
+
+
+
+
+    function addCarController ($scope, localStorageService) {
+        
+    }
+    angular
+        .module('mercury.controllers')
+        .controller('AddCarCtrl', addCarController);
+
 
 
 

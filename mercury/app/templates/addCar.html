@@ -1,0 +1,65 @@
+<ion-view view-title="Add car">
+  <ion-content>
+    <div class="list">
+	  	<label class="item item-input item-floating-label">
+	    	<span class="input-label">Name</span>
+	    	<input type="text" ng-model="name" placeholder="Name">
+	  	</label>
+
+	  	<div class="item item-divider">
+  			Registration
+  		</div>
+	  	<label class="item item-input item-floating-label">
+	    	<span class="input-label">Registration number</span>
+	    	<input type="text" ng-model="registrationNumber" placeholder="Registration number">
+	  	</label>
+	  	<div class="item">
+	  		<ion-toggle ng-model="regoReminderOnOff" toggle-class="toggle-calm">Remind me</ion-toggle>
+	  		<div ng-show="regoReminderOnOff" class="range range-positive">
+		    	<i class="icon ion-ios-alarm-outline"></i>
+		    	<input type="range" ng-model="registrationReminder" name="registrationReminder" min="1" max="12" value="6">
+		    </div>
+		    
+	  	</div>
+
+
+
+
+	  	<label class="item item-input item-floating-label">
+	    	<span class="input-label">Next service</span>
+	    	<input type="text" ng-model="nextService" placeholder="Next service">
+	  	</label>
+	  	<label class="item item-input item-floating-label">
+	    	<span class="input-label">Tyre pressure</span>
+	    	<input type="text" ng-model="tyrePressure" placeholder="Tyre pressure">
+	  	</label>
+
+	  	<div class="item item-divider">
+  		</div>
+	  	<label class="item item-input item-floating-label">
+	    	<span class="input-label">Make</span>
+	    	<input type="text" ng-model="Make" placeholder="Make">
+	  	</label>
+	  	<label class="item item-input item-floating-label">
+	    	<span class="input-label">Model</span>
+	    	<input type="text" ng-model="Model" placeholder="Model">
+	  	</label>
+	  	<label class="item item-input item-floating-label">
+	    	<span class="input-label">Year</span>
+	    	<input type="text" ng-model="year" placeholder="Year">
+	  	</label>
+	  	<label class="item item-input item-floating-label">
+	    	<span class="input-label">Engine size</span>
+	    	<input type="text" ng-model="engienSize" placeholder="Engien size">
+	  	</label>
+
+	  	<a class="button button-block button-stable" href="#/app/mycarlist">
+    		Save
+  		</a>
+
+	  	<a class="button button-block button-stable" href="#/app/mycarlist">
+    		Cancel
+  		</a>
+	</div>
+  </ion-content>
+</ion-view>
