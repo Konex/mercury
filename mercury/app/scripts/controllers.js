@@ -39,15 +39,18 @@
 
 
     function addCarController ($scope, localStorageService) {
-        $scope.regoReminderToggle = false;
-        $scope.onRegoReminderToggleChange = onRegoReminderToggleChange;
+        setDefaults();
+        wireHandlers();
 
-
+        function setDefaults () {
+            $scope.registrationReminderCycle = 6;
+            $scope.regoReminderToggle = { text:'Rego reminder', checked: false };    
+        }
+        function wireHandlers () {
+            $scope.onRegoReminderToggleChange = onRegoReminderToggleChange;    
+        }
         function onRegoReminderToggleChange () {
-            if ($scope.regoReminderToggle)
-                $scope.registrationReminder = 'every ' + $scope.registrationReminderCycle + 'months';
-            else 
-                $scope.registrationReminder = '';    
+            
         }
     }
     angular
