@@ -14,21 +14,31 @@
 	    	<input type="text" ng-model="registrationNumber" placeholder="Registration number">
 	  	</label>
 	  	<div class="item">
-	  		<ion-toggle ng-model="regoReminderOnOff" toggle-class="toggle-calm">Remind me</ion-toggle>
-	  		<div ng-show="regoReminderOnOff" class="range range-positive">
+	  		<ion-toggle ng-model="regoReminderToggle" ng-change="onRegoReminderToggleChange()" toggle-class="toggle-calm">Remind me {{registrationReminder}}</ion-toggle>
+	  		<div ng-show="regoReminderToggle" class="range range-positive">
 		    	<i class="icon ion-ios-alarm-outline"></i>
-		    	<input type="range" ng-model="registrationReminder" name="registrationReminder" min="1" max="12" value="6">
+		    	<input type="range" ng-model="registrationReminderCycle" name="registrationReminderCycle" min="1" max="12" value="6">
 		    </div>
-		    
 	  	</div>
 
-
-
-
+	  	<div class="item item-divider">
+  			Service
+  		</div>
 	  	<label class="item item-input item-floating-label">
-	    	<span class="input-label">Next service</span>
-	    	<input type="text" ng-model="nextService" placeholder="Next service">
+	    	<span class="input-label">Who services my car</span>
+	    	<input type="text" ng-model="serviceProvider" placeholder="Who services my car">
 	  	</label>
+	  	<label class="item item-input item-floating-label">
+	    	<span class="input-label">I need to call them</span>
+	    	<input type="text" ng-model="serviceProviderNumber" placeholder="I need to call them">
+	  	</label>
+	  	<div class="item">
+	  		<ion-toggle ng-model="serviceReminderToggle" toggle-class="toggle-calm">Remind me {{serviceReminder}}</ion-toggle>
+	  		<div ng-show="serviceReminderToggle" class="range range-positive">
+		    	<i class="icon ion-ios-bell-outline"></i>
+		    	<input type="range" ng-model="serviceReminderCycle" name="serviceReminderCycle" min="1" max="12" value="6">
+		    </div>
+	  	</div>
 	  	<label class="item item-input item-floating-label">
 	    	<span class="input-label">Tyre pressure</span>
 	    	<input type="text" ng-model="tyrePressure" placeholder="Tyre pressure">
@@ -46,7 +56,7 @@
 	  	</label>
 	  	<label class="item item-input item-floating-label">
 	    	<span class="input-label">Year</span>
-	    	<input type="text" ng-model="year" placeholder="Year">
+	    	<input type="number" min="1" ng-model="year" placeholder="Year">
 	  	</label>
 	  	<label class="item item-input item-floating-label">
 	    	<span class="input-label">Engine size</span>
@@ -56,7 +66,6 @@
 	  	<a class="button button-block button-stable" href="#/app/mycarlist">
     		Save
   		</a>
-
 	  	<a class="button button-block button-stable" href="#/app/mycarlist">
     		Cancel
   		</a>

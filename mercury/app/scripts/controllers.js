@@ -19,9 +19,7 @@
         //     { title: 'Honda Accord', id: 1 },
         //     { title: 'Nissan Bluebird', id: 2 }
         // ];
-        function addCar() {
-
-        }
+        
 
 
 
@@ -41,7 +39,16 @@
 
 
     function addCarController ($scope, localStorageService) {
-        
+        $scope.regoReminderToggle = false;
+        $scope.onRegoReminderToggleChange = onRegoReminderToggleChange;
+
+
+        function onRegoReminderToggleChange () {
+            if ($scope.regoReminderToggle)
+                $scope.registrationReminder = 'every ' + $scope.registrationReminderCycle + 'months';
+            else 
+                $scope.registrationReminder = '';    
+        }
     }
     angular
         .module('mercury.controllers')
