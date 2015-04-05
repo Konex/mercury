@@ -14,7 +14,7 @@
 	    	<input type="text" ng-model="registrationNumber" placeholder="Registration number">
 	  	</label>
 	  	<div class="item">
-	  		<ion-toggle id="regoReminderToggle" ng-class="{'gray-text': !regoReminderToggle.checked}" ng-model="regoReminderToggle.checked" toggle-class="toggle-calm" >Remind me every {{registrationReminderCycle}} months</ion-toggle>
+	  		<ion-toggle ng-class="{'gray-text': !regoReminderToggle.checked}" ng-model="regoReminderToggle.checked" toggle-class="toggle-calm" >Remind me every {{registrationReminderCycle}} months</ion-toggle>
 	  		<div ng-show="regoReminderToggle.checked" class="range range-positive">
 		    	<i class="icon ion-ios-alarm-outline"></i>
 		    	<input type="range" ng-model="registrationReminderCycle" name="registrationReminderCycle" min="1" max="12" value="6">
@@ -33,10 +33,10 @@
 	    	<input type="text" ng-model="serviceProviderNumber" placeholder="I need to call them">
 	  	</label>
 	  	<div class="item">
-	  		<ion-toggle ng-model="serviceReminderToggle" toggle-class="toggle-calm">Remind me {{serviceReminder}}</ion-toggle>
-	  		<div ng-show="serviceReminderToggle" class="range range-positive">
+	  		<ion-toggle ng-class="{'gray-text': !serviceReminderToggle.checked}" ng-model="serviceReminderToggle.checked" toggle-class="toggle-calm">Remind me every {{serviceReminderCycle}} months</ion-toggle>
+	  		<div ng-show="serviceReminderToggle.checked" class="range range-positive">
 		    	<i class="icon ion-ios-bell-outline"></i>
-		    	<input type="range" ng-model="serviceReminderCycle" name="serviceReminderCycle" min="1" max="12" value="6">
+		    	<input type="range" ng-model="serviceReminderCycle" name="serviceReminderCycle" min="1" max="12" value="5">
 		    </div>
 	  	</div>
 	  	<label class="item item-input item-floating-label">

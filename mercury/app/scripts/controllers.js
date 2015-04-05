@@ -44,6 +44,7 @@
 
         function setDefaults () {
             $scope.registrationReminderCycle = 6;
+            $scope.serviceReminderCycle = 5;
             $scope.regoReminderToggle = { text:'Rego reminder', checked: false };    
         }
         function wireHandlers () {
