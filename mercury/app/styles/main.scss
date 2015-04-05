@@ -1,1 +1,11 @@
-// Your application styles go here
+// colors
+$gray-light: #ddd;
+
+
+
+// add car
+.gray-text {
+	span {
+		color: $gray-light;			
+	}
+}
