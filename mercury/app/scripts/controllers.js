@@ -88,6 +88,11 @@
         var carList = localStorageService.get('carList');
         var car = $filter('filter')(carList, {id:id})[0];
         $scope.car = car;
+        $scope.saveCar = saveCar;
+
+        function saveCar () {
+            localStorageService.set('carList', carList);
+        }
     }
     angular
         .module('mercury.controllers')
