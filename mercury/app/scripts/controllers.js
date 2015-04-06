@@ -2,7 +2,7 @@
     angular.module('mercury.controllers', ['LocalStorageModule']);
 
     function appController ($scope, $ionicModal, $timeout, localStorageService) {
-        var carList = localStorageService.get('myCarList');
+        var carList = localStorageService.get('carList');
         $scope.numberOfCar = carList ? carList.length : 0;
     }
     angular
@@ -15,19 +15,8 @@
 
 
     function myCarListController ($scope, localStorageService) {
-        // var defaultCarList = [
-        //     { title: 'Honda Accord', id: 1 },
-        //     { title: 'Nissan Bluebird', id: 2 }
-        // ];
-        
-
-
-
-        var carList = localStorageService.get('myCarList');
-        $scope.myCarList = carList || [];
-
-
-
+        var carList = localStorageService.get('carList');
+        $scope.carList = carList || [];
     }
     angular
         .module('mercury.controllers')
@@ -38,20 +27,53 @@
 
 
 
-    function addCarController ($scope, localStorageService) {
+    function addCarController ($scope, $state, localStorageService) {
         setDefaults();
         wireHandlers();
 
         function setDefaults () {
-            $scope.registrationReminderCycle = 6;
-            $scope.serviceReminderCycle = 5;
-            $scope.regoReminderToggle = { text:'Rego reminder', checked: false };    
+            var car = {};
+            car.name = '';
+            car.registrationNumber = '';
+            car.registrationReminderCycle = 6;
+            car.serviceProvider = '';
+            car.serviceProviderNumber = '';
+            car.serviceReminderCycle = 5;
+            car.regoReminderToggle = { text:'Rego reminder', checked: false };
+            car.serviceReminderToggle = {text: 'Service reminder', checked: false};
+            car.tyrePressure = '';
+            car.make = '';
+            car.model = '';
+            car.year = '';
+            car.engineSize = '';
+            $scope.car = car;
         }
         function wireHandlers () {
-            $scope.onRegoReminderToggleChange = onRegoReminderToggleChange;    
+            $scope.addCar = addCar;
         }
-        function onRegoReminderToggleChange () {
-            
+        function addCar () {
+            var carList = localStorageService.get('carList');
+            carList = carList || [];
+
+            var car = {};
+            car.id = carList.length + 1;
+            car.name = $scope.car.name;
+            car.registrationNumber = $scope.car.registrationNumber;
+            car.regoReminderToggle = $scope.car.regoReminderToggle;
+            car.registrationReminderCycle = $scope.car.registrationReminderCycle;
+            car.serviceProvider = $scope.car.serviceProvider;
+            car.serviceProviderNumber = $scope.car.serviceProviderNumber;
+            car.serviceReminderToggle = $scope.car.serviceReminderToggle;
+            car.serviceReminderCycle = $scope.car.serviceReminderCycle;
+            car.tyrePressure = $scope.car.tyrePressure;
+            car.make = $scope.car.make;
+            car.model = $scope.car.model;
+            car.year = $scope.car.year;
+            car.engineSize = $scope.car.engineSize;
+            carList.push(car);
+            localStorageService.set('carList', carList);
+
+            $state.go('app.single', {carId:car.id});
         }
     }
     angular
@@ -61,10 +83,11 @@
 
 
 
-
-
-    function carDetailController ($scope, $stateParams, localStorageService) {
+    function carDetailController ($scope, $filter, $stateParams, localStorageService) {
         var id = $stateParams.carId;
+        var carList = localStorageService.get('carList');
+        var car = $filter('filter')(carList, {id:id})[0];
+        $scope.car = car;
     }
     angular
         .module('mercury.controllers')
