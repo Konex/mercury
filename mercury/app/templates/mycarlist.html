@@ -3,12 +3,28 @@
       	<a class="button" href="#/app/addCar">
       		<i class="icon ion-plus"></i>
       	</a>
+        <button class="button" ng-click="data.showDelete = false; data.showReorder = !data.showReorder">
+            Reorder
+        </button>
     </ion-nav-buttons>
   	<ion-content>
-    	<ion-list>
-      	<ion-item ng-repeat="car in carList" href="#/app/mycarlist/{{::car.id}}">
-        	{{::car.name}}
-      	</ion-item>
+    	<ion-list   show-delete="false"
+                    show-reorder="data.showReorder"
+                    can-swipe="true">
+      	    <ion-item   ng-repeat="car in carList" 
+                        item="car"
+                        href="#/app/mycarlist/{{::car.id}}"
+                        class="item-remove-animate">
+        	    {{::car.name}}
+            
+                <ion-option-button  class="button-assertive"
+                                    ng-click="delete(item)">
+                    delete
+                </ion-option-button>
+                <ion-reorder-button class="ion-navicon" 
+                                    on-reorder="moveItem(item, $fromIndex, $toIndex)">
+                </ion-reorder-button>
+      	    </ion-item>
     	</ion-list>
   	</ion-content>
 </ion-view>
