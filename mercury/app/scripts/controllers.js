@@ -17,6 +17,22 @@
     function myCarListController ($scope, localStorageService) {
         var carList = localStorageService.get('carList');
         $scope.carList = carList || [];
+        
+        wireHandlers();
+
+        function wireHandlers () {
+            $scope.moveCar = moveCar;
+            $scope.deleteCar = deleteCar;
+        }
+        function moveCar (car, fromIndex, toIndex) {
+            $scope.carList.splice(fromIndex, 1);
+            $scope.carList.splice(toIndex, 0, car);
+            localStorageService.set('carList', carList);
+        }
+        function deleteCar (car) {
+            $scope.carList.splice($scope.carList.indexOf(car), 1);
+            localStorageService.set('carList', carList);
+        }
     }
     angular
         .module('mercury.controllers')
@@ -87,9 +103,12 @@
         var id = $stateParams.carId;
         var carList = localStorageService.get('carList');
         var car = $filter('filter')(carList, {id:id})[0];
-        $scope.car = car;
-        $scope.saveCar = saveCar;
+        $scope.car = car;    
+        wireHandlers();
 
+        function wireHandlers () {
+            $scope.saveCar = saveCar;
+        }
         function saveCar () {
             localStorageService.set('carList', carList);
         }
