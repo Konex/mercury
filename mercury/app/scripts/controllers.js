@@ -17,6 +17,9 @@
     function myCarListController ($scope, localStorageService) {
         var carList = localStorageService.get('carList');
         $scope.carList = carList || [];
+        $scope.data = {
+            showReorder: false
+        };
         
         wireHandlers();
 
