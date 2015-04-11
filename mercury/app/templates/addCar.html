@@ -43,14 +43,12 @@
 	  	<label class="item item-input item-floating-label">
 	    	<span class="input-label">Tyre pressure</span>
 	    	<div class="row">
-	    		<input class="col-75" type="text" ng-model="car.tyrePressure" placeholder="Tyre pressure">
+	    		<input class="col-80" type="text" ng-model="car.tyrePressure" placeholder="Tyre pressure">
 	    	
-		    	<label class="col-25 toggle">
+		    	<label class="col-20 toggle toggle-calm">
 	        		<input type="checkbox" ng-model="tog">
-	        		<div class="track">
-	         
-	           			<div class="handle">{{ (tog)? 'psi':'kpa'}}</div>
-	           
+	        		<div id="tyrePressureToggleTrack" class="track">
+	           			<div id="tyrePressureToggle" class="handle">{{ (tog)? 'psi':'kpa'}}</div>
 	        		</div>
 	        	</label>
         	</div>

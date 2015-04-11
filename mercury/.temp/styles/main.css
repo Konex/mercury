@@ -1,4 +1,19 @@
-@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Users\/Yini\/Documents\/GitHub\/mercury\/mercury\/app\/styles\/main\.scss}line{font-family:\000038}}
+@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Users\/Yini\/Documents\/GitHub\/mercury\/mercury\/app\/styles\/main\.scss}line{font-family:\000039}}
 .gray-text span {
   color: #ddd;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Users\/Yini\/Documents\/GitHub\/mercury\/mercury\/app\/styles\/main\.scss}line{font-family:\0000314}}
+#tyrePressureToggle {
+  padding-top: 4px;
+  padding-left: 4px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Users\/Yini\/Documents\/GitHub\/mercury\/mercury\/app\/styles\/main\.scss}line{font-family:\0000319}}
+#tyrePressureToggleTrack {
+  background-color: #11c1f3 !important;
+  border-bottom-color: #11c1f3 !important;
+  border-left-color: #11c1f3 !important;
+  border-right-color: #11c1f3 !important;
+  border-top-color: #11c1f3 !important;
 }

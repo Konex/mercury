@@ -1,6 +1,7 @@
 // colors
 $gray-light: #ddd;
-
+$color-royal: #8a6de9;
+$color-calm: #11c1f3;
 
 
 // add car
@@ -8,4 +9,18 @@ $gray-light: #ddd;
 	span {
 		color: $gray-light;			
 	}
+}
+
+#tyrePressureToggle {
+	padding-top: 4px;
+	padding-left: 4px;	
+}
+
+#tyrePressureToggleTrack {
+	background-color: $color-calm !important;
+	border-bottom-color: $color-calm !important;
+	border-left-color: $color-calm !important;;
+	border-right-color: $color-calm !important;
+	border-top-color: $color-calm !important;
+	
 }
