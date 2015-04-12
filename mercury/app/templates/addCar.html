@@ -13,13 +13,12 @@
 	    	<span class="input-label">Registration number</span>
 	    	<input type="text" ng-model="car.registrationNumber" placeholder="Registration number">
 	  	</label>
-	  	<div class="item">
-	  		<ion-toggle ng-class="{'gray-text': !car.regoReminderToggle.checked}" ng-model="car.regoReminderToggle.checked" toggle-class="toggle-calm" >Remind me every {{car.registrationReminderCycle}} months</ion-toggle>
-	  		<div ng-show="car.regoReminderToggle.checked" class="range range-positive">
-		    	<i class="icon ion-ios-alarm-outline"></i>
-		    	<input type="range" ng-model="car.registrationReminderCycle" name="registrationReminderCycle" min="1" max="12" value="6">
-		    </div>
-	  	</div>
+	  
+  		<ion-toggle ng-class="{'gray-text': !car.regoReminderToggle.checked}" ng-model="car.regoReminderToggle.checked" toggle-class="toggle-calm" >Remind me every {{car.registrationReminderCycle}} months</ion-toggle>
+  		<div ng-show="car.regoReminderToggle.checked" class="range range-positive">
+	    	<i class="icon ion-ios-alarm-outline"></i>
+	    	<input type="range" ng-model="car.registrationReminderCycle" name="registrationReminderCycle" min="1" max="12" value="6">
+	    </div>
 
 	  	<div class="item item-divider">
   			Service
@@ -32,23 +31,22 @@
 	    	<span class="input-label">I need to call them</span>
 	    	<input type="text" ng-model="car.serviceProviderNumber" placeholder="I need to call them">
 	  	</label>
-	  	<div class="item">
-	  		<ion-toggle ng-class="{'gray-text': !car.serviceReminderToggle.checked}" ng-model="car.serviceReminderToggle.checked" toggle-class="toggle-calm">Remind me every {{car.serviceReminderCycle}} months</ion-toggle>
-	  		<div ng-show="car.serviceReminderToggle.checked" class="range range-positive">
-		    	<i class="icon ion-ios-bell-outline"></i>
-		    	<input type="range" ng-model="car.serviceReminderCycle" name="serviceReminderCycle" min="1" max="12" value="5">
-		    </div>
-	  	</div>
-
+	  	
+  		<ion-toggle ng-class="{'gray-text': !car.serviceReminderToggle.checked}" ng-model="car.serviceReminderToggle.checked" toggle-class="toggle-calm">Remind me every {{car.serviceReminderCycle}} months</ion-toggle>
+  		<div ng-show="car.serviceReminderToggle.checked" class="range range-positive">
+	    	<i class="icon ion-ios-bell-outline"></i>
+	    	<input type="range" ng-model="car.serviceReminderCycle" name="serviceReminderCycle" min="1" max="12" value="5">
+	    </div>
+	  	
 	  	<label class="item item-input item-floating-label">
 	    	<span class="input-label">Tyre pressure</span>
 	    	<div class="row">
 	    		<input class="col-80" type="text" ng-model="car.tyrePressure" placeholder="Tyre pressure">
 	    	
 		    	<label class="col-20 toggle toggle-calm">
-	        		<input type="checkbox" ng-model="tog">
+	        		<input type="checkbox" ng-model="tyrePressureToggle">
 	        		<div id="tyrePressureToggleTrack" class="track">
-	           			<div id="tyrePressureToggle" class="handle">{{ (tog)? 'psi':'kpa'}}</div>
+	           			<div id="tyrePressureToggle" class="handle">{{(tyrePressureToggle)? 'psi':'kpa'}}</div>
 	        		</div>
 	        	</label>
         	</div>
