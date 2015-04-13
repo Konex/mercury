@@ -27,9 +27,16 @@
 	    	<span class="input-label">Who services my car</span>
 	    	<input type="text" ng-model="car.serviceProvider" placeholder="Who services my car">
 	  	</label>
-	  	<div class="item">
+	  	<div ng-show="!editEnable" class="item">
 			<a class="button icon-left ion-ios7-telephone button-calm button-outline" ng-href="tel: {{car.serviceProviderNumber}}">Call {{car.serviceProviderNumber}}</a>
+		    <button class="button button-assertive" ng-click="editEnable = true" ng-init="editEnable = false">Edit</button>	  
 	  	</div>
+	  	<div ng-show="editEnable" class="item item-input item-floating-label">
+	    	<span class="input-label">Call my machemic</span>
+	    	<input type="text" ng-model="car.serviceProviderNumber" placeholder="Call my machemic">
+	    	<button class="button button-positive" ng-click="editEnable = false;saveCar()">Save</button>	
+	  	</div>
+
   		<ion-toggle ng-class="{'gray-text': !car.serviceReminderToggle.checked}" ng-model="car.serviceReminderToggle.checked" toggle-class="toggle-calm">Remind me every {{car.serviceReminderCycle}} months</ion-toggle>
   		<div ng-show="car.serviceReminderToggle.checked" class="range range-positive">
 	    	<i class="icon ion-ios-bell-outline"></i>
